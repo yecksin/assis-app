@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NoticiasService } from '../services/noticias.service';
+import { ModalController } from '@ionic/angular';
+import { ModalNoticiaPage } from '../modals/modal-noticia/modal-noticia.page';
 
 interface SectionsI {
   header: {
@@ -33,7 +36,7 @@ export class HomePage implements OnInit {
         img: "https://picsum.photos/200/300?random=1",
         content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, earum cumque laudantium accusantium fugiat saepe cupiditate perspiciatis commodi quod tempore illo doloribus mollitia et veniam debitis sequi accusamus vitae! Laudantium.",
         imgSize: 3,
-        contentSize: 9
+        contentSize: 9,
       }
     },
     {
@@ -47,9 +50,24 @@ export class HomePage implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(
+    public _noticias:NoticiasService,
+    public modalController: ModalController
+    ) { 
+
+  }
 
   ngOnInit() {
+    console.log(this._noticias.noticias);
+  }
+
+  async abrirModalNoticia(noticia) {
+    this._noticias.verNoticia(noticia);
+    const modal = await this.modalController.create({
+      component: ModalNoticiaPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 
 }

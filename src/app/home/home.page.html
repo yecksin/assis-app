@@ -10,21 +10,27 @@
 <ion-content>
   <ion-searchbar showCancelButton="always"></ion-searchbar>
 
-  <ion-grid class="section" *ngFor="let section of sections">
+  <ion-grid class="section" *ngFor="let noticia of _noticias.noticias">
     <ion-row class="header">
       <ion-col class="title">
-        {{section.header.title}}
+        <h1> <ion-icon color="primary" slot="start" [name]="noticia.icon"></ion-icon> {{noticia.categoria}} </h1>
       </ion-col>
     </ion-row>
 
-    <ion-row class="body">
-      <ion-col [size]="section.body.imgSize && section.body.imgSize || sectionsConfig.imgSize">
-        <img [src]="section.body.img" alt="">
-      </ion-col>
-      <ion-col [size]="section.body.contentSize && section.body.contentSize || sectionsConfig.contentSize" class="content">
-        {{section.body.content}}
-      </ion-col>
-    </ion-row>
+
+
+    <ion-card *ngFor="let item of noticia.noticias" (click)="abrirModalNoticia(item)">
+      <ion-img [src]="item.imagen"></ion-img>
+      <ion-card-content>
+        <h1> Marcador</h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi laboriosam sunt, natus ex ullam beatae sed repudiandae facere dignissimos nemo!
+        <br>
+        <ion-chip *ngFor="let chips of item.chips">
+          <ion-label>{{chips.titulo}}</ion-label>
+        </ion-chip>
+      </ion-card-content>
+    </ion-card>
+
 
   </ion-grid>
 
