@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FilterNoticiasPipe } from './pipes/filter-noticias.pipe';
 
 @NgModule({
   declarations: [AppComponent],

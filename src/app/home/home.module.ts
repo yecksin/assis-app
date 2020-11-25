@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
+import { FilterNoticiasPipe } from '../pipes/filter-noticias.pipe';
 
 @NgModule({
+ 
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,FilterNoticiasPipe]
 })
 export class HomePageModule {}

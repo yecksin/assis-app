@@ -21,7 +21,7 @@ interface SectionsI {
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
+  textoFiltro="";
   sectionsConfig = {
     imgSize: 3,
     contentSize: 9
@@ -59,6 +59,11 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     console.log(this._noticias.noticias);
+  }
+
+  setTextFilter(e){
+    console.log(e.detail.value);
+    this.textoFiltro = e.detail.value;
   }
 
   async abrirModalNoticia(noticia) {
