@@ -5,12 +5,17 @@
         <ion-icon slot="icon-only" name="arrow-back-outline" ></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>{{noticia.titulo}}</ion-title>
+    <ion-title>{{noticia.categoria}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <img [src]="noticia.imagen" alt="">
 <!-- <h1>{{noticia.titulo}}</h1> -->
-<p>{{noticia.descripcion}}</p>
+<ion-grid class="container">
+  <h1>
+    {{noticia.titulo}}
+  </h1>
+  <p>{{noticia.descripcion}}</p>
+</ion-grid>
 </ion-content>

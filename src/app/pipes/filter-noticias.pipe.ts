@@ -13,7 +13,7 @@ export class FilterNoticiasPipe implements PipeTransform {
     texto = texto.toLocaleLowerCase();
     return arreglo.filter(item=>{
    
-      return item.titulo.includes(texto)
+      return item.categoria.includes(texto)
     })
    
   }
