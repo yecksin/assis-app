@@ -22,8 +22,8 @@
     <ion-card *ngFor="let item of noticia.noticias" (click)="abrirModalNoticia(item)">
       <ion-img [src]="item.imagen"></ion-img>
       <ion-card-content>
-        <h1> Marcador</h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi laboriosam sunt, natus ex ullam beatae sed repudiandae facere dignissimos nemo!
+        <h1> {{item.titulo}}</h1>
+        {{item.descripcionCorta}}
         <br>
         <ion-chip *ngFor="let chips of item.chips">
           <ion-label>{{chips.titulo}}</ion-label>
